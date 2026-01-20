@@ -17,7 +17,6 @@ import { Route as DemoTableRouteImport } from './routes/demo/table'
 import { Route as DemoStorybookRouteImport } from './routes/demo/storybook'
 import { Route as DemoOrpcTodoRouteImport } from './routes/demo/orpc-todo'
 import { Route as DemoI18nRouteImport } from './routes/demo.i18n'
-import { Route as DemoDrizzleRouteImport } from './routes/demo/drizzle'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as ApiSplatRouteImport } from './routes/api.$'
 import { Route as AuthSignupIndexRouteImport } from './routes/auth/signup/index'
@@ -74,11 +73,6 @@ const DemoOrpcTodoRoute = DemoOrpcTodoRouteImport.update({
 const DemoI18nRoute = DemoI18nRouteImport.update({
   id: '/demo/i18n',
   path: '/demo/i18n',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoDrizzleRoute = DemoDrizzleRouteImport.update({
-  id: '/demo/drizzle',
-  path: '/demo/drizzle',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoBetterAuthRoute = DemoBetterAuthRouteImport.update({
@@ -171,7 +165,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/$': typeof ApiSplatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
   '/demo/i18n': typeof DemoI18nRoute
   '/demo/orpc-todo': typeof DemoOrpcTodoRoute
   '/demo/storybook': typeof DemoStorybookRoute
@@ -199,7 +192,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/$': typeof ApiSplatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
   '/demo/i18n': typeof DemoI18nRoute
   '/demo/orpc-todo': typeof DemoOrpcTodoRoute
   '/demo/storybook': typeof DemoStorybookRoute
@@ -228,7 +220,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/api/$': typeof ApiSplatRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
-  '/demo/drizzle': typeof DemoDrizzleRoute
   '/demo/i18n': typeof DemoI18nRoute
   '/demo/orpc-todo': typeof DemoOrpcTodoRoute
   '/demo/storybook': typeof DemoStorybookRoute
@@ -258,7 +249,6 @@ export interface FileRouteTypes {
     | '/'
     | '/api/$'
     | '/demo/better-auth'
-    | '/demo/drizzle'
     | '/demo/i18n'
     | '/demo/orpc-todo'
     | '/demo/storybook'
@@ -286,7 +276,6 @@ export interface FileRouteTypes {
     | '/'
     | '/api/$'
     | '/demo/better-auth'
-    | '/demo/drizzle'
     | '/demo/i18n'
     | '/demo/orpc-todo'
     | '/demo/storybook'
@@ -314,7 +303,6 @@ export interface FileRouteTypes {
     | '/'
     | '/api/$'
     | '/demo/better-auth'
-    | '/demo/drizzle'
     | '/demo/i18n'
     | '/demo/orpc-todo'
     | '/demo/storybook'
@@ -343,7 +331,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiSplatRoute: typeof ApiSplatRoute
   DemoBetterAuthRoute: typeof DemoBetterAuthRoute
-  DemoDrizzleRoute: typeof DemoDrizzleRoute
   DemoI18nRoute: typeof DemoI18nRoute
   DemoOrpcTodoRoute: typeof DemoOrpcTodoRoute
   DemoStorybookRoute: typeof DemoStorybookRoute
@@ -424,13 +411,6 @@ declare module '@tanstack/react-router' {
       path: '/demo/i18n'
       fullPath: '/demo/i18n'
       preLoaderRoute: typeof DemoI18nRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/drizzle': {
-      id: '/demo/drizzle'
-      path: '/demo/drizzle'
-      fullPath: '/demo/drizzle'
-      preLoaderRoute: typeof DemoDrizzleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/better-auth': {
@@ -559,7 +539,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiSplatRoute: ApiSplatRoute,
   DemoBetterAuthRoute: DemoBetterAuthRoute,
-  DemoDrizzleRoute: DemoDrizzleRoute,
   DemoI18nRoute: DemoI18nRoute,
   DemoOrpcTodoRoute: DemoOrpcTodoRoute,
   DemoStorybookRoute: DemoStorybookRoute,
