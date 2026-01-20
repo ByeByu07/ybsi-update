@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as DemoTrpcTodoRouteImport } from './routes/demo/trpc-todo'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo/table'
@@ -19,6 +20,8 @@ import { Route as DemoI18nRouteImport } from './routes/demo.i18n'
 import { Route as DemoDrizzleRouteImport } from './routes/demo/drizzle'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as ApiSplatRouteImport } from './routes/api.$'
+import { Route as AuthSignupIndexRouteImport } from './routes/auth/signup/index'
+import { Route as AuthSigninIndexRouteImport } from './routes/auth/signin/index'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
@@ -36,6 +39,11 @@ import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ss
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/dashboard/',
+  path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTrpcTodoRoute = DemoTrpcTodoRouteImport.update({
@@ -81,6 +89,16 @@ const DemoBetterAuthRoute = DemoBetterAuthRouteImport.update({
 const ApiSplatRoute = ApiSplatRouteImport.update({
   id: '/api/$',
   path: '/api/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignupIndexRoute = AuthSignupIndexRouteImport.update({
+  id: '/auth/signup/',
+  path: '/auth/signup/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSigninIndexRoute = AuthSigninIndexRouteImport.update({
+  id: '/auth/signin/',
+  path: '/auth/signin/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
@@ -160,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/trpc-todo': typeof DemoTrpcTodoRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -169,6 +188,8 @@ export interface FileRoutesByFullPath {
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/signin/': typeof AuthSigninIndexRoute
+  '/auth/signup/': typeof AuthSignupIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -185,6 +206,7 @@ export interface FileRoutesByTo {
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/trpc-todo': typeof DemoTrpcTodoRoute
+  '/dashboard': typeof DashboardIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -194,6 +216,8 @@ export interface FileRoutesByTo {
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/signin': typeof AuthSigninIndexRoute
+  '/auth/signup': typeof AuthSignupIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -211,6 +235,7 @@ export interface FileRoutesById {
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/trpc-todo': typeof DemoTrpcTodoRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
@@ -220,6 +245,8 @@ export interface FileRoutesById {
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
+  '/auth/signin/': typeof AuthSigninIndexRoute
+  '/auth/signup/': typeof AuthSignupIndexRoute
   '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
   '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
   '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
@@ -238,6 +265,7 @@ export interface FileRouteTypes {
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/trpc-todo'
+    | '/dashboard/'
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
@@ -247,6 +275,8 @@ export interface FileRouteTypes {
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/signin/'
+    | '/auth/signup/'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -263,6 +293,7 @@ export interface FileRouteTypes {
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/trpc-todo'
+    | '/dashboard'
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
@@ -272,6 +303,8 @@ export interface FileRouteTypes {
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/signin'
+    | '/auth/signup'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -288,6 +321,7 @@ export interface FileRouteTypes {
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/trpc-todo'
+    | '/dashboard/'
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
@@ -297,6 +331,8 @@ export interface FileRouteTypes {
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
+    | '/auth/signin/'
+    | '/auth/signup/'
     | '/demo/start/ssr/data-only'
     | '/demo/start/ssr/full-ssr'
     | '/demo/start/ssr/spa-mode'
@@ -314,6 +350,7 @@ export interface RootRouteChildren {
   DemoTableRoute: typeof DemoTableRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   DemoTrpcTodoRoute: typeof DemoTrpcTodoRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiRpcSplatRoute: typeof ApiRpcSplatRoute
   ApiTrpcSplatRoute: typeof ApiTrpcSplatRoute
@@ -323,6 +360,8 @@ export interface RootRouteChildren {
   DemoFormSimpleRoute: typeof DemoFormSimpleRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
+  AuthSigninIndexRoute: typeof AuthSigninIndexRoute
+  AuthSignupIndexRoute: typeof AuthSignupIndexRoute
   DemoStartSsrDataOnlyRoute: typeof DemoStartSsrDataOnlyRoute
   DemoStartSsrFullSsrRoute: typeof DemoStartSsrFullSsrRoute
   DemoStartSsrSpaModeRoute: typeof DemoStartSsrSpaModeRoute
@@ -336,6 +375,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/trpc-todo': {
@@ -399,6 +445,20 @@ declare module '@tanstack/react-router' {
       path: '/api/$'
       fullPath: '/api/$'
       preLoaderRoute: typeof ApiSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/signup/': {
+      id: '/auth/signup/'
+      path: '/auth/signup'
+      fullPath: '/auth/signup/'
+      preLoaderRoute: typeof AuthSignupIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/signin/': {
+      id: '/auth/signin/'
+      path: '/auth/signin'
+      fullPath: '/auth/signin/'
+      preLoaderRoute: typeof AuthSigninIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/server-funcs': {
@@ -506,6 +566,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoTrpcTodoRoute: DemoTrpcTodoRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiRpcSplatRoute: ApiRpcSplatRoute,
   ApiTrpcSplatRoute: ApiTrpcSplatRoute,
@@ -515,6 +576,8 @@ const rootRouteChildren: RootRouteChildren = {
   DemoFormSimpleRoute: DemoFormSimpleRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
+  AuthSigninIndexRoute: AuthSigninIndexRoute,
+  AuthSignupIndexRoute: AuthSignupIndexRoute,
   DemoStartSsrDataOnlyRoute: DemoStartSsrDataOnlyRoute,
   DemoStartSsrFullSsrRoute: DemoStartSsrFullSsrRoute,
   DemoStartSsrSpaModeRoute: DemoStartSsrSpaModeRoute,
