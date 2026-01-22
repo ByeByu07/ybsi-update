@@ -19,6 +19,11 @@ import { Route as DemoOrpcTodoRouteImport } from './routes/demo/orpc-todo'
 import { Route as DemoI18nRouteImport } from './routes/demo.i18n'
 import { Route as DemoBetterAuthRouteImport } from './routes/demo/better-auth'
 import { Route as DashboardSubmissionRouteImport } from './routes/dashboard/submission'
+import { Route as DashboardRoomRouteImport } from './routes/dashboard/room'
+import { Route as DashboardRegistrationRouteImport } from './routes/dashboard/registration'
+import { Route as DashboardPatientRouteImport } from './routes/dashboard/patient'
+import { Route as DashboardMemberRouteImport } from './routes/dashboard/member'
+import { Route as DashboardApprovalRouteImport } from './routes/dashboard/approval'
 import { Route as ApiSplatRouteImport } from './routes/api.$'
 import { Route as AuthLogoutRouteRouteImport } from './routes/auth/logout/route'
 import { Route as AuthSignupIndexRouteImport } from './routes/auth/signup/index'
@@ -29,6 +34,7 @@ import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
 import { Route as DemoFormAddressRouteImport } from './routes/demo/form.address'
 import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
+import { Route as DashboardPatientAllRouteImport } from './routes/dashboard/patient_.all'
 import { Route as ApiTrpcSplatRouteImport } from './routes/api.trpc.$'
 import { Route as ApiRpcSplatRouteImport } from './routes/api.rpc.$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
@@ -87,6 +93,31 @@ const DashboardSubmissionRoute = DashboardSubmissionRouteImport.update({
   path: '/submission',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardRoomRoute = DashboardRoomRouteImport.update({
+  id: '/room',
+  path: '/room',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardRegistrationRoute = DashboardRegistrationRouteImport.update({
+  id: '/registration',
+  path: '/registration',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardPatientRoute = DashboardPatientRouteImport.update({
+  id: '/patient',
+  path: '/patient',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardMemberRoute = DashboardMemberRouteImport.update({
+  id: '/member',
+  path: '/member',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardApprovalRoute = DashboardApprovalRouteImport.update({
+  id: '/approval',
+  path: '/approval',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const ApiSplatRoute = ApiSplatRouteImport.update({
   id: '/api/$',
   path: '/api/$',
@@ -137,6 +168,11 @@ const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
   path: '/demo/api/names',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardPatientAllRoute = DashboardPatientAllRouteImport.update({
+  id: '/patient_/all',
+  path: '/patient/all',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const ApiTrpcSplatRoute = ApiTrpcSplatRouteImport.update({
   id: '/api/trpc/$',
   path: '/api/trpc/$',
@@ -178,6 +214,11 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/auth/logout': typeof AuthLogoutRouteRoute
   '/api/$': typeof ApiSplatRoute
+  '/dashboard/approval': typeof DashboardApprovalRoute
+  '/dashboard/member': typeof DashboardMemberRoute
+  '/dashboard/patient': typeof DashboardPatientRoute
+  '/dashboard/registration': typeof DashboardRegistrationRoute
+  '/dashboard/room': typeof DashboardRoomRoute
   '/dashboard/submission': typeof DashboardSubmissionRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/demo/i18n': typeof DemoI18nRoute
@@ -189,6 +230,7 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
+  '/dashboard/patient/all': typeof DashboardPatientAllRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -207,6 +249,11 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/auth/logout': typeof AuthLogoutRouteRoute
   '/api/$': typeof ApiSplatRoute
+  '/dashboard/approval': typeof DashboardApprovalRoute
+  '/dashboard/member': typeof DashboardMemberRoute
+  '/dashboard/patient': typeof DashboardPatientRoute
+  '/dashboard/registration': typeof DashboardRegistrationRoute
+  '/dashboard/room': typeof DashboardRoomRoute
   '/dashboard/submission': typeof DashboardSubmissionRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/demo/i18n': typeof DemoI18nRoute
@@ -218,6 +265,7 @@ export interface FileRoutesByTo {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
+  '/dashboard/patient/all': typeof DashboardPatientAllRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -237,6 +285,11 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/auth/logout': typeof AuthLogoutRouteRoute
   '/api/$': typeof ApiSplatRoute
+  '/dashboard/approval': typeof DashboardApprovalRoute
+  '/dashboard/member': typeof DashboardMemberRoute
+  '/dashboard/patient': typeof DashboardPatientRoute
+  '/dashboard/registration': typeof DashboardRegistrationRoute
+  '/dashboard/room': typeof DashboardRoomRoute
   '/dashboard/submission': typeof DashboardSubmissionRoute
   '/demo/better-auth': typeof DemoBetterAuthRoute
   '/demo/i18n': typeof DemoI18nRoute
@@ -248,6 +301,7 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/trpc/$': typeof ApiTrpcSplatRoute
+  '/dashboard/patient_/all': typeof DashboardPatientAllRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -268,6 +322,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/auth/logout'
     | '/api/$'
+    | '/dashboard/approval'
+    | '/dashboard/member'
+    | '/dashboard/patient'
+    | '/dashboard/registration'
+    | '/dashboard/room'
     | '/dashboard/submission'
     | '/demo/better-auth'
     | '/demo/i18n'
@@ -279,6 +338,7 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
+    | '/dashboard/patient/all'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -297,6 +357,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/auth/logout'
     | '/api/$'
+    | '/dashboard/approval'
+    | '/dashboard/member'
+    | '/dashboard/patient'
+    | '/dashboard/registration'
+    | '/dashboard/room'
     | '/dashboard/submission'
     | '/demo/better-auth'
     | '/demo/i18n'
@@ -308,6 +373,7 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
+    | '/dashboard/patient/all'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -326,6 +392,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/auth/logout'
     | '/api/$'
+    | '/dashboard/approval'
+    | '/dashboard/member'
+    | '/dashboard/patient'
+    | '/dashboard/registration'
+    | '/dashboard/room'
     | '/dashboard/submission'
     | '/demo/better-auth'
     | '/demo/i18n'
@@ -337,6 +408,7 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/rpc/$'
     | '/api/trpc/$'
+    | '/dashboard/patient_/all'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -452,6 +524,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSubmissionRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/room': {
+      id: '/dashboard/room'
+      path: '/room'
+      fullPath: '/dashboard/room'
+      preLoaderRoute: typeof DashboardRoomRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/registration': {
+      id: '/dashboard/registration'
+      path: '/registration'
+      fullPath: '/dashboard/registration'
+      preLoaderRoute: typeof DashboardRegistrationRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/patient': {
+      id: '/dashboard/patient'
+      path: '/patient'
+      fullPath: '/dashboard/patient'
+      preLoaderRoute: typeof DashboardPatientRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/member': {
+      id: '/dashboard/member'
+      path: '/member'
+      fullPath: '/dashboard/member'
+      preLoaderRoute: typeof DashboardMemberRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/approval': {
+      id: '/dashboard/approval'
+      path: '/approval'
+      fullPath: '/dashboard/approval'
+      preLoaderRoute: typeof DashboardApprovalRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/api/$': {
       id: '/api/$'
       path: '/api/$'
@@ -522,6 +629,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoApiNamesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/patient_/all': {
+      id: '/dashboard/patient_/all'
+      path: '/patient/all'
+      fullPath: '/dashboard/patient/all'
+      preLoaderRoute: typeof DashboardPatientAllRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/api/trpc/$': {
       id: '/api/trpc/$'
       path: '/api/trpc/$'
@@ -575,11 +689,23 @@ declare module '@tanstack/react-router' {
 }
 
 interface DashboardRouteRouteChildren {
+  DashboardApprovalRoute: typeof DashboardApprovalRoute
+  DashboardMemberRoute: typeof DashboardMemberRoute
+  DashboardPatientRoute: typeof DashboardPatientRoute
+  DashboardRegistrationRoute: typeof DashboardRegistrationRoute
+  DashboardRoomRoute: typeof DashboardRoomRoute
   DashboardSubmissionRoute: typeof DashboardSubmissionRoute
+  DashboardPatientAllRoute: typeof DashboardPatientAllRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardApprovalRoute: DashboardApprovalRoute,
+  DashboardMemberRoute: DashboardMemberRoute,
+  DashboardPatientRoute: DashboardPatientRoute,
+  DashboardRegistrationRoute: DashboardRegistrationRoute,
+  DashboardRoomRoute: DashboardRoomRoute,
   DashboardSubmissionRoute: DashboardSubmissionRoute,
+  DashboardPatientAllRoute: DashboardPatientAllRoute,
 }
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
