@@ -51,30 +51,30 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard/stakeholder",
+      url: "/dashboard",
       icon: LayoutDashboard,
       isActive: true,
     },
     {
       title: "Pengajuan",
-      url: "/dashboard/stakeholder/submissions",
+      url: "/dashboard/submission",
       icon: FileUp,
       badge: "10",
     },
     {
       title: "Persetujuan",
-      url: "/dashboard/stakeholder/approvals",
+      url: "/dashboard/approval",
       icon: CheckCircle,
       badge: "10",
     },
     {
       title: "Registrasi Pasien",
-      url: "/dashboard/stakeholder/registrations",
+      url: "/dashboard/registration",
       icon: User,
     },
     {
       title: "Pasien",
-      url: "/dashboard/stakeholder/patients",
+      url: "/dashboard/patient",
       icon: UserLock,
     },
     // {
@@ -94,12 +94,12 @@ const data = {
     // },
     {
       title: "Kamar",
-      url: "/dashboard/stakeholder/rooms",
+      url: "/dashboard/room",
       icon: BedDouble,
     },
     {
       title: "Anggota",
-      url: "/dashboard/stakeholder/members",
+      url: "/dashboard/member",
       icon: UserRound,
     },
     // {
@@ -111,7 +111,7 @@ const data = {
   navSecondary: [
     {
       title: "Keluar",
-      url: "/logout",
+      url: "/auth/logout",
       icon: LogOut,
     },
     // {
